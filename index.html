@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>teapa fraiere</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: white;
+      font-family: 'Arial Black', Arial, sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ===== GRID IMAGINI ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: 0.3s;
+      filter: brightness(0.9);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      border-color: #ff00ff;
+      box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+      filter: brightness(1.1);
+    }
+
+    /* ===== TEXTUL MARE DIN MIJLOC ===== */
+    .center-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(2.8rem, 10vw, 6.5rem);
+      text-align: center;
+      z-index: 100;
+      pointer-events: none;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 1.1;
+      
+      /* RGB glow */
+      background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rgb 4s linear infinite;
+      text-shadow: 
+        0 0 10px rgba(255,0,255,0.6),
+        0 0 30px rgba(0,255,255,0.4),
+        0 0 50px rgba(255,0,0,0.3);
+    }
+
+    @keyframes rgb {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* umbră neagră sub text ca să se citească pe imagini */
+    .center-text::after {
+      content: "teapa fraiere";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: rgba(0,0,0,0.75);
+      z-index: -1;
+      filter: blur(4px);
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+      }
+      .gallery img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TEXTUL MARE -->
+  <div class="center-text">teapa fraiere</div>
+
+  <!-- GALERIE IMAGINI 18+ -->
+  <div class="gallery">
+    <!-- Înlocuiește link-urile de mai jos cu pozele tale -->
+    <img src="https://picsum.photos/id/64/400/600" alt="18+">
+    <img src="https://picsum.photos/id/65/400/600" alt="18+">
+    <img src="https://picsum.photos/id/66/400/600" alt="18+">
+    <img src="https://picsum.photos/id/67/400/600" alt="18+">
+    <img src="https://picsum.photos/id/68/400/600" alt="18+">
+    <img src="https://picsum.photos/id/69/400/600" alt="18+">
+    <img src="https://picsum.photos/id/70/400/600" alt="18+">
+    <img src="https://picsum.photos/id/71/400/600" alt="18+">
+    <img src="https://picsum.photos/id/72/400/600" alt="18+">
+    <img src="https://picsum.photos/id/73/400/600" alt="18+">
+    <img src="https://picsum.photos/id/74/400/600" alt="18+">
+    <img src="https://picsum.photos/id/75/400/600" alt="18+">
+  </div>
+
+</body>
+</html>
