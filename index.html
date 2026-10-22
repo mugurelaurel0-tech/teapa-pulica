@@ -1,131 +1,322 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>teapa fraiere</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Știri Locale de Ultimă Oră - Breaking News</title>
+    <style>
+        :root {
+            --primary-color: #cc0000;
+            --secondary-color: #002244;
+            --dark-color: #111;
+            --light-color: #f4f4f4;
+        }
 
-    body {
-      background: #000;
-      color: white;
-      font-family: 'Arial Black', Arial, sans-serif;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
 
-    /* ===== GRID IMAGINI ===== */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 12px;
-      padding: 20px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+        /* Antet stil ProTV / Antena 1 */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--primary-color);
+        }
 
-    .gallery img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid transparent;
-      transition: 0.3s;
-      filter: brightness(0.9);
-    }
+        .logo {
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-    .gallery img:hover {
-      transform: scale(1.03);
-      border-color: #ff00ff;
-      box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
-      filter: brightness(1.1);
-    }
+        .logo span {
+            background-color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
 
-    /* ===== TEXTUL MARE DIN MIJLOC ===== */
-    .center-text {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(2.8rem, 10vw, 6.5rem);
-      text-align: center;
-      z-index: 100;
-      pointer-events: none;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      line-height: 1.1;
-      
-      /* RGB glow */
-      background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: rgb 4s linear infinite;
-      text-shadow: 
-        0 0 10px rgba(255,0,255,0.6),
-        0 0 30px rgba(0,255,255,0.4),
-        0 0 50px rgba(255,0,0,0.3);
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
 
-    @keyframes rgb {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        /* Burtieră Breaking News */
+        .breaking-news-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-    /* umbră neagră sub text ca să se citească pe imagini */
-    .center-text::after {
-      content: "teapa fraiere";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: rgba(0,0,0,0.75);
-      z-index: -1;
-      filter: blur(4px);
-    }
+        .breaking-tag {
+            background-color: yellow;
+            color: black;
+            padding: 2px 8px;
+            margin-right: 15px;
+            border-radius: 2px;
+            animation: blink 1.2s infinite;
+        }
 
-    /* responsive */
-    @media (max-width: 600px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        padding: 10px;
-      }
-      .gallery img {
-        height: 220px;
-      }
-    }
-  </style>
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Articolul Principal */
+        .main-story {
+            background: white;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .story-category {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .meta-info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        /* Zona foto */
+        .image-container {
+            position: relative;
+            margin-bottom: 20px;
+            background-color: #000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .news-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.9;
+        }
+
+        /* Burtieră TV suprapusă pe imagine */
+        .tv-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px;
+            color: white;
+        }
+
+        .tv-ticker {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            font-weight: bold;
+            font-size: 20px;
+            display: inline-block;
+            text-transform: uppercase;
+            border-left: 5px solid yellow;
+        }
+
+        .story-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .story-text p {
+            margin-bottom: 15px;
+        }
+
+        /* Secțiunea Laterală (Sidebar) */
+        .sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .side-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .side-item:last-child {
+            border-bottom: none;
+        }
+
+        .side-image {
+            width: 100%;
+            height: auto;
+            border-radius: 3px;
+            margin-top: 8px;
+        }
+
+        .side-item h3 {
+            font-size: 15px;
+            margin: 5px 0 0 0;
+            line-height: 1.4;
+        }
+
+        .side-item h3 a {
+            color: #222;
+            text-decoration: none;
+        }
+
+        .side-item h3 a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 5px;
+            font-size: 13px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- TEXTUL MARE -->
-  <div class="center-text">teapa fraiere</div>
+    <!-- Header Site -->
+    <header>
+        <div class="logo">ȘTIRI<span>LOCALE</span></div>
+        <nav>
+            <a href="#">Actualitate</a>
+            <a href="#">Eveniment</a>
+            <a href="#">Social</a>
+            <a href="#">Meteo</a>
+        </nav>
+    </header>
 
-  <!-- GALERIE IMAGINI 18+ -->
-  <div class="gallery">
-    <!-- Înlocuiește link-urile de mai jos cu pozele tale -->
-    <img src="https://picsum.photos/id/64/400/600" alt="18+">
-    <img src="https://picsum.photos/id/65/400/600" alt="18+">
-    <img src="https://picsum.photos/id/66/400/600" alt="18+">
-    <img src="https://picsum.photos/id/67/400/600" alt="18+">
-    <img src="https://picsum.photos/id/68/400/600" alt="18+">
-    <img src="https://picsum.photos/id/69/400/600" alt="18+">
-    <img src="https://picsum.photos/id/70/400/600" alt="18+">
-    <img src="https://picsum.photos/id/71/400/600" alt="18+">
-    <img src="https://picsum.photos/id/72/400/600" alt="18+">
-    <img src="https://picsum.photos/id/73/400/600" alt="18+">
-    <img src="https://picsum.photos/id/74/400/600" alt="18+">
-    <img src="https://picsum.photos/id/75/400/600" alt="18+">
-  </div>
+    <!-- Burtieră Alertă -->
+    <div class="breaking-news-bar">
+        <span class="breaking-tag">ALERTĂ</span>
+        <span>ACȚIUNE ÎN FORȚĂ A POLIȚIEI ÎN DIRECT! RĂSTURNARE DE SITUAȚIE!</span>
+    </div>
 
-</body>
-</html>
+    <!-- Conținut Principal -->
+    <div class="container">
+        
+        <!-- Știrea Principală -->
+        <main class="main-story">
+            <span class="story-category">EVENIMENT / EXCLUSIV</span>
+            <h1>FLAGRANT DE PROPORȚII! Tânără suspectată că ar fi capul unei rețele locale de distribuție: „Vindea marfă mascată în dulciuri”</h1>
+            
+            <div class="meta-info">
+                Publicat: Astăzi | Actualizat: Acum 5 minute | Secțiunea: Investigații
+            </div>
+
+            <!-- Imaginea 1 (Fata) -->
+            <div class="image-container">
+                <!-- Redenumirile imaginilor: Înlocuiește "fata.jpg" cu numele exact al fișierului tău încărcat pe GitHub -->
+                <img src="fata.jpg" alt="Suspectă reținută" class="news-image">
+                <div class="tv-overlay">
+                    <div class="tv-ticker">LIVE: SUSPECTA A FOST PRINSĂ ÎN DETALII INCENDIARE</div>
+                </div>
+            </div>
+
+            <div class="story-text">
+                <p><strong>București.</strong> Răsturnare de situație în lumea interlopă locală! O tânără aparent inofensivă este suspectată de procurori că ar fi coordonat una dintre cele mai active rețele de distribuție de substanțe interzise din zonă.</p>
+                
+                <p>Potrivit primelor informații din anchetă, tranzacțiile erau mascate cu o ingeniozitate greu de imaginat, rețeaua reușind să ruleze sume impresionante de bani chiar sub ochii autorităților. Flagrantul a fost organizat după luni întregi de filaj și interceptări telefonice.</p>
+
+                <p>Anchetatorii au descoperit în urma perchezițiilor cantități importante de substanțe de mare risc, cântare electronice de precizie și agende în care erau trecute sumele de bani primite de la clienți. Suspecta urmează să fie audiată în cursul acestei seri.</p>
+            </div>
+        </main>
+
+        <!-- Bara Laterală cu A Doua Poză -->
+        <aside class="sidebar">
+            <h2>ALTE ȘTIRI DE ULTIMĂ ORĂ</h2>
+            
+            <!-- Știrea cu A Doua Poză -->
+            <div class="side-item">
+                <span class="story-category" style="font-size: 11px;">PROBE DOSAR</span>
+                <!-- Redenumirile imaginilor: Înlocuiește "dovada.jpg" cu numele exact al celei de-a doua poze pe GitHub -->
+                <img src="dovada.jpg" alt="Probe ridicate de poliție" class="side-image">
+                <h3><a href="#">EXCLUSIV. Au fost găsite ascunzătorile! Imaginile momentului din timpul perchezițiilor realizate în această dimineață.</a></h3>
+            </div>
+
+            <div class="side-item">
+                <span class="story-category" style="font-size: 11px;">REACȚII</span>
+                <h3><a href="#">Ce riscă cei implicați? Avocații explică modificările legislative privind regimul substanțelor interzise.</a></h3>
+            </div>
+            
+            <div class="side-item">
+                <span class="story-category" style="font-size: 11px;">MĂSURI</span>
+                <h3><a href="#">Filtre masive la intrările în oraș. Poliția Rutieră verifică toate mașinile suspecte.</a></h3>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Subsol -->
+    <footer>
