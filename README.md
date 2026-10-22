@@ -1,1 +1,0 @@
-# teapa-pulica
