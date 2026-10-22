@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Știri Locale de Ultimă Oră - Breaking News</title>
+    <title>Știri Locale - Flagrant de Proporții</title>
     <style>
         :root {
             --primary-color: #cc0000;
@@ -20,7 +20,6 @@
             color: var(--dark-color);
         }
 
-        /* Antet stil ProTV / Antena 1 */
         header {
             background-color: var(--secondary-color);
             color: white;
@@ -54,7 +53,6 @@
             text-transform: uppercase;
         }
 
-        /* Burtieră Breaking News */
         .breaking-news-bar {
             background-color: var(--primary-color);
             color: white;
@@ -82,7 +80,6 @@
             100% { opacity: 1; }
         }
 
-        /* Container Principal */
         .container {
             max-width: 1100px;
             margin: 25px auto;
@@ -92,7 +89,6 @@
             gap: 30px;
         }
 
-        /* Articolul Principal */
         .main-story {
             background: white;
             padding: 25px;
@@ -110,7 +106,7 @@
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 34px;
             line-height: 1.2;
             margin-top: 0;
             margin-bottom: 15px;
@@ -125,29 +121,28 @@
             padding-bottom: 10px;
         }
 
-        /* Zona foto */
         .image-container {
             position: relative;
             margin-bottom: 20px;
             background-color: #000;
             border-radius: 4px;
             overflow: hidden;
+            max-height: 600px;
         }
 
         .news-image {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0.9;
+            object-fit: cover;
         }
 
-        /* Burtieră TV suprapusă pe imagine */
         .tv-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
             padding: 20px;
             color: white;
         }
@@ -157,7 +152,7 @@
             color: white;
             padding: 8px 15px;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
             display: inline-block;
             text-transform: uppercase;
             border-left: 5px solid yellow;
@@ -173,7 +168,6 @@
             margin-bottom: 15px;
         }
 
-        /* Secțiunea Laterală (Sidebar) */
         .sidebar {
             background: white;
             padding: 20px;
@@ -210,7 +204,7 @@
 
         .side-item h3 {
             font-size: 15px;
-            margin: 5px 0 0 0;
+            margin: 8px 0 0 0;
             line-height: 1.4;
         }
 
@@ -223,13 +217,12 @@
             color: var(--primary-color);
         }
 
-        /* Footer */
         footer {
             background-color: var(--secondary-color);
             color: #aaa;
             text-align: center;
             padding: 20px;
-            margin-top: 5px;
+            margin-top: 40px;
             font-size: 13px;
             border-top: 4px solid var(--primary-color);
         }
@@ -239,84 +232,81 @@
                 grid-template-columns: 1fr;
             }
             h1 {
-                font-size: 28px;
+                font-size: 26px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Site -->
+    <!-- Meniu Superior -->
     <header>
         <div class="logo">ȘTIRI<span>LOCALE</span></div>
         <nav>
             <a href="#">Actualitate</a>
             <a href="#">Eveniment</a>
-            <a href="#">Social</a>
+            <a href="#">Antidrog</a>
             <a href="#">Meteo</a>
         </nav>
     </header>
 
-    <!-- Burtieră Alertă -->
+    <!-- Burtieră Breaking News -->
     <div class="breaking-news-bar">
-        <span class="breaking-tag">ALERTĂ</span>
-        <span>ACȚIUNE ÎN FORȚĂ A POLIȚIEI ÎN DIRECT! RĂSTURNARE DE SITUAȚIE!</span>
+        <span class="breaking-tag">BREAKING NEWS</span>
+        <span>REȚEA DE TRAFIC DE DIZOLVATĂ ÎN TIMP RECORD. DETALII SOCANTE DIN DOSAR!</span>
     </div>
 
-    <!-- Conținut Principal -->
+    <!-- Corp Site -->
     <div class="container">
         
-        <!-- Știrea Principală -->
+        <!-- Articol Principal (Imaginea 1) -->
         <main class="main-story">
-            <span class="story-category">EVENIMENT / EXCLUSIV</span>
-            <h1>FLAGRANT DE PROPORȚII! Tânără suspectată că ar fi capul unei rețele locale de distribuție: „Vindea marfă mascată în dulciuri”</h1>
+            <span class="story-category">EXCLUSIV / INVESTIGAȚIE</span>
+            <h1>AFACERE CORDOANATĂ DIN SPATELE BANCHETULUI! Tânără suspectată că vindea substanțe interzise ascunse în accesorii de păr</h1>
             
             <div class="meta-info">
-                Publicat: Astăzi | Actualizat: Acum 5 minute | Secțiunea: Investigații
+                Publicat: Astăzi | Actualizat: Acum 2 minute | Reporter: Secția Eveniment
             </div>
 
-            <!-- Imaginea 1 (Fata) -->
             <div class="image-container">
-                <!-- Redenumirile imaginilor: Înlocuiește "fata.jpg" cu numele exact al fișierului tău încărcat pe GitHub -->
-                <img src="fata.jpg" alt="Suspectă reținută" class="news-image">
+                <!-- Prima imagine primită -->
+                <img src="fata1.png" alt="Suspectă rețea" class="news-image">
                 <div class="tv-overlay">
-                    <div class="tv-ticker">LIVE: SUSPECTA A FOST PRINSĂ ÎN DETALII INCENDIARE</div>
+                    <div class="tv-ticker">DIRECT PRO TV: CAPUL REȚELEI A FOST IDENTIFICATĂ</div>
                 </div>
             </div>
 
             <div class="story-text">
-                <p><strong>București.</strong> Răsturnare de situație în lumea interlopă locală! O tânără aparent inofensivă este suspectată de procurori că ar fi coordonat una dintre cele mai active rețele de distribuție de substanțe interzise din zonă.</p>
+                <p><strong>București.</strong> Anchetatorii au descins în această după-amiază la mai multe adrese din capitală, într-un dosar ce vizează vânzarea ilegală de substanțe interzise de mare risc către tineri.</p>
                 
-                <p>Potrivit primelor informații din anchetă, tranzacțiile erau mascate cu o ingeniozitate greu de imaginat, rețeaua reușind să ruleze sume impresionante de bani chiar sub ochii autorităților. Flagrantul a fost organizat după luni întregi de filaj și interceptări telefonice.</p>
+                <p>Surse din cadrul poliției afirmă că suspecta principală folosea un stil de viață aparent inofensiv și accesorii colorate pentru a nu trezi suspiciuni în timpul livrărilor. Tranzacțiile se făceau rapid, direct din mașini aflate în mișcare, pentru a îngreuna filajul structurilor antidrog.</p>
 
-                <p>Anchetatorii au descoperit în urma perchezițiilor cantități importante de substanțe de mare risc, cântare electronice de precizie și agende în care erau trecute sumele de bani primite de la clienți. Suspecta urmează să fie audiată în cursul acestei seri.</p>
+                <p>În urma perchezițiilor, telefoanele folosite pentru coordonarea rețelei au fost ridicate pentru expertiză informatică. Suspecta riscă o pedeapsă grea cu închisoarea dacă acuzațiile vor fi probate în instanță.</p>
             </div>
         </main>
 
-        <!-- Bara Laterală cu A Doua Poză -->
+        <!-- Bara Laterală (Imaginea 2) -->
         <aside class="sidebar">
-            <h2>ALTE ȘTIRI DE ULTIMĂ ORĂ</h2>
+            <h2>PROBE ȘI PROFIL</h2>
             
-            <!-- Știrea cu A Doua Poză -->
             <div class="side-item">
-                <span class="story-category" style="font-size: 11px;">PROBE DOSAR</span>
-                <!-- Redenumirile imaginilor: Înlocuiește "dovada.jpg" cu numele exact al celei de-a doua poze pe GitHub -->
-                <img src="dovada.jpg" alt="Probe ridicate de poliție" class="side-image">
-                <h3><a href="#">EXCLUSIV. Au fost găsite ascunzătorile! Imaginile momentului din timpul perchezițiilor realizate în această dimineață.</a></h3>
+                <span class="story-category" style="font-size: 11px;">DOVADA STRÂNSĂ</span>
+                <!-- A doua imagine primită -->
+                <img src="fata2.png" alt="Probe dosar" class="side-image">
+                <h3><a href="#">S-A DAT DE GOL ÎN TIMPUL FILAJULUI! Codurile secrete folosite în clipurile video online au fost decodificate de polițiști.</a></h3>
             </div>
 
             <div class="side-item">
-                <span class="story-category" style="font-size: 11px;">REACȚII</span>
-                <h3><a href="#">Ce riscă cei implicați? Avocații explică modificările legislative privind regimul substanțelor interzise.</a></h3>
-            </div>
-            
-            <div class="side-item">
-                <span class="story-category" style="font-size: 11px;">MĂSURI</span>
-                <h3><a href="#">Filtre masive la intrările în oraș. Poliția Rutieră verifică toate mașinile suspecte.</a></h3>
+                <span class="story-category" style="font-size: 11px;">MĂRTURII</span>
+                <h3><a href="#">„Nu ne venea să credem!” Ce spun vecinii și apropiații despre activitățile secrete din timpul nopții.</a></h3>
             </div>
         </aside>
 
     </div>
 
-    <!-- Subsol -->
     <footer>
+        &copy; 2026 Știri Locale TV. Conținut realizat exclusiv în scop demonstrativ / satiric.
+    </footer>
+
+</body>
+</html>
